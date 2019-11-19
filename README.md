@@ -14,6 +14,10 @@ It was created to detect tomatoes on an image, but it can be easily repurposed a
 * ```visualize``` provides functions needed to visualize inferences
 * ```train_tomato``` is a jupyter notebook usable to train the network using google colab
 
+# Tomato dataset
+I made a small dataset for tomato detection. pLease feel free to use it
+[Tomato dataset](https://drive.google.com/drive/folders/1QUBwzUc8uyjCXemetmurzBxbxt4pWQZ1?usp=sharing)
+
 # Train on your own dataset
 ```Config```
 This class contains the default configuration. Subclass it and modify the attributes you need to change.
