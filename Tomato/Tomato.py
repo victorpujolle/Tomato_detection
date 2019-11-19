@@ -22,10 +22,11 @@ import matplotlib.lines as lines
 from matplotlib.patches import Polygon
 
 # Root directory of the project
-ROOT_DIR = os.path.abspath("../../")
+MRCNN_DIR = os.path.abspath("./../")
 
 # Import Mask RCNN
-sys.path.append(ROOT_DIR)  # To find local version of the library
+sys.path.append(MRCNN_DIR)  # To find local version of the library
+print(os.listdir(MRCNN_DIR))
 from mrcnn.config import Config
 from mrcnn import utils
 import mrcnn.model as modellib
@@ -34,7 +35,7 @@ from mrcnn.model import log
 
 
 class TomatoConfig(Config):
-    """Configuration for training on the toy  dataset.
+    """Configuration for training on the dataset.
     Derives from the base Config class and overrides some values.
     """
     # Give the configuration a recognizable name
@@ -42,7 +43,7 @@ class TomatoConfig(Config):
 
     # We use a GPU with 12GB memory, which can fit two images.
     # Adjust down if you use a smaller GPU.
-    # it works, on my computer
+    # it works, if you ask inference for one image at the time
     GPU_COUNT = 1
     IMAGES_PER_GPU = 1
 
@@ -53,12 +54,12 @@ class TomatoConfig(Config):
     STEPS_PER_EPOCH = 100
 
     # Skip detections with < 90% confidence
-    DETECTION_MIN_CONFIDENCE = 0.9
+    DETECTION_MIN_CONFIDENCE = 0.99
 
 class TomatoDataset(utils.Dataset):
 
     def load_tomato(self, dataset_dir, subset):
-        """Load a subset of the Balloon dataset.
+        """Load a subset of the tomato dataset.
         dataset_dir: Root directory of the dataset.
         subset: Subset to load: train or val
         """
@@ -150,3 +151,24 @@ class TomatoDataset(utils.Dataset):
             return info["path"]
         else:
             super(self.__class__, self).image_reference(image_id)
+
+class TomatoInfer():
+    """Class that does the inferences"""
+    def __init__(self, config, model_dir):
+        """Recreate the model in inference mode
+        config : a tomatoconfig object
+        model_dir : path to the mask_rcnn_coco.h5"""
+        self.model = modellib.MaskRCNN(mode="inference", config=config, model_dir=model_dir)
+
+    def load_weights(self, weights_dir):
+        """Loads given weight file
+        weight_dir : path to the weight you want to use"""
+        # Load trained weights
+        print("Loading weights from ", weights_dir)
+        self.model.load_weights(weights_dir, by_name=True)
+
+    def infer(self, images, verbose=1):
+        """Does inference on the given image.s"""
+        return self.model.detect(images, verbose=verbose)
+
+
