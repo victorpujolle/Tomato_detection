@@ -16,6 +16,7 @@ It was created to detect tomatoes on an image, but it can be easily repurposed a
 
 # Tomato dataset
 I made a small dataset for tomato detection. pLease feel free to use it
+
 [Tomato dataset](https://drive.google.com/drive/folders/1QUBwzUc8uyjCXemetmurzBxbxt4pWQZ1?usp=sharing)
 
 # Train on your own dataset
@@ -28,3 +29,6 @@ It allows you to use new datasets for training without having to change
 the code of the model. It also supports loading multiple datasets at the
 same time, which is useful if the objects you want to detect are not
 all available in one dataset.
+
+# Get started
+Open the ```train_tomato.ipynb``` in google colab and follow the instructions
