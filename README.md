@@ -37,15 +37,17 @@ from the [original repository](https://github.com/matterport/Mask_RCNN)
 
 You can search images on flickr, limiting the licence type to Commercial use & mods allowed. Between 75 and 100 images should be enough. You may need more images if you need very good accuracy
 but in simple cases it will be enough because we use transfert learning, meaning we don't train the model from scratch but start with a weight file that’s been trained on the COCO dataset.
-Then divide them into a training set and a validation set.
+
+Then divide them into a training set and a validation set, named ```train``` and ```val```.
 
 There is a lot of tools to annotate images. The code here is made for [Via (VGG image annotator)](http://www.robots.ox.ac.uk/~vgg/software/via/).
 It’s a single HTML file that you download and open in a browser.
 
 Then you can annotate your images, using only the polygon annotation tool (you can use other tools but you'll have to extend the ```Dataset``` class)
-Save the annotation using the json file,  each mask is a set of polygon points.
+Save the annotation using the JSON file,  each mask is a set of polygon points.
+You should create 2 JSON files, for the training and the validation set. The name of the file should be ```via_region_data.json```.
 
-Then upload your dataset in your google drive and go on google colab.
+Then, upload your dataset on your google drive and go on google colab.
 
 # Get started
 Open the ```train_tomato.ipynb``` in google colab and follow the instructions
