@@ -8,10 +8,19 @@ The repository provide on a simple implementation of the Mask R-CNN built on FPN
 and ResNet101 and a Jupyter notebooks to train the network on a custom dataset using google colab.
 It was created to detect tomatoes on an image, but it can be easily repurposed and trained.
 
-# Get started
-* Launch_inference.py is the main script
-* Tomato.py provides classes needed to configure the model
-* visualize.py provides functions needed to visualize inferences
-* train_tomato.ipynb is a jupyter notebook usable to train the network using google colab
+# Tomato folder
+* ```Launch_inference``` is the main script
+* ```Tomato.py provides``` classes needed to configure the model
+* ```visualize``` provides functions needed to visualize inferences
+* ```train_tomato``` is a jupyter notebook usable to train the network using google colab
 
+# Train on your own dataset
+```Config```
+This class contains the default configuration. Subclass it and modify the attributes you need to change.
 
+```Dataset```
+This class provides a consistent way to work with any dataset.
+It allows you to use new datasets for training without having to change
+the code of the model. It also supports loading multiple datasets at the
+same time, which is useful if the objects you want to detect are not
+all available in one dataset.
