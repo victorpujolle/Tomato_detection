@@ -9,10 +9,10 @@ and ResNet101 and a Jupyter notebooks to train the network on a custom dataset u
 It was created to detect tomatoes on an image, but it can be easily repurposed and trained.
 
 # Tomato folder
-* ```Launch_inference``` is the main script
-* ```Tomato.py provides``` classes needed to configure the model
-* ```visualize``` provides functions needed to visualize inferences
-* ```train_tomato``` is a jupyter notebook usable to train the network using google colab
+* ```Launch_inference.py``` is the main script
+* ```Tomato.py``` provides classes needed to configure the model
+* ```visualize.py``` provides functions needed to visualize inferences
+* ```train_tomato.ipynb``` is a jupyter notebook usable to train the network using google colab
 
 # Tomato dataset
 I made a small dataset for tomato detection. pLease feel free to use it
