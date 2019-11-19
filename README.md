@@ -5,7 +5,7 @@ The model generates bounding boxes and segmentation masks for each instance of a
 It's based on Feature Pyramid Network (FPN) and a ResNet101 backbone.
 
 The repository provide on a simple implementation of the Mask R-CNN built on FPN
-and ResNet101 and a Jupyter notebooks to train the network on a custom dataset using google colab.
+and ResNet101 and a Jupyter notebooks to train the network on a custom dataset using google colab using pretrained weights
 It was created to detect tomatoes on an image, but it can be easily repurposed and trained.
 
 # Tomato folder
