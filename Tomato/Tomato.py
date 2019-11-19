@@ -53,7 +53,7 @@ class TomatoConfig(Config):
     # Number of training steps per epoch
     STEPS_PER_EPOCH = 100
 
-    # Skip detections with < 90% confidence
+    # Skip detections with < 99% confidence
     DETECTION_MIN_CONFIDENCE = 0.99
 
 class TomatoDataset(utils.Dataset):

@@ -24,14 +24,12 @@ COCO_MODEL_PATH = os.path.join(MODEL_PATH, "mask_rcnn_coco.h5")
 
 # Path to the dataset
 DATASET_PATH = os.path.join(ROOT_PATH, 'Real_dataset')
-print(os.listdir(ROOT_PATH))
 
 # Path to saved weights
 TOMATO_MODEL_PATH = os.path.join(MODEL_PATH, 'mask_rcnn_tomato.h5')
 
 # Path to save visualization figure
 FIGURE_PATH = os.path.join(ROOT_PATH, 'Figures')
-print(os.listdir(FIGURE_PATH))
 
 # Configuration file for training and inference
 config = TomatoConfig()
@@ -42,7 +40,6 @@ config.display()
 dataset_val = TomatoDataset()
 dataset_val.load_tomato(DATASET_PATH, "val")
 dataset_val.prepare()
-print(dataset_val.image_ids)
 
 # Test on a random image
 image_id = random.choice(dataset_val.image_ids)
